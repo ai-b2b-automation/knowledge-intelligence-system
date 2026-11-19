@@ -1,0 +1,65 @@
+Development Milestones
+This public changelog documents selected, non-sensitive milestones of AIAQ Knowledge Intelligence System (KIS) 1.0.
+
+The implementation is maintained privately within AIAQ Lab's AI Hub. Development history, source documents, raw test evidence, internal configuration, prompts, credentials, and proprietary engineering details are intentionally excluded.
+Milestones below distinguish completed local validation from planned or partially validated functionality. They do not imply unrestricted production authorization.
+
+November 2026 — Foundation and Local MVP
+Milestone 1 — Knowledge Intelligence Strategy
+- Defined KIS as a local-first retrieval and project-context layer over existing AI Hub services.
+- Identified three core use cases: source-grounded search, project re-entry, and evidence-assisted engineering review.
+- Established the principle that original project materials remain authoritative and the index is only a derived retrieval layer.
+- Excluded unnecessary new services and uncontrolled cloud dependencies from the initial scope.
+Outcome: a bounded architecture and an evidence-first development path.
+Milestone 2 — Retrieval Backend Validation
+- Evaluated the available self-hosted retrieval infrastructure.
+- Selected reuse of the existing Open WebUI / Chroma environment rather than deploying a duplicate vector database.
+- Validated the local retrieval foundation and supported service boundaries in controlled checks.
+Outcome: an established backend direction for the limited local MVP.
+Milestone 3 — Controlled Knowledge Ingestion
+- Introduced a limited approved-source corpus for the first retrieval experiments.
+- Recorded a pilot baseline of 6 documents / 165 chunks, including 4 pilot documents.
+- Exercised indexing and controlled backup/restore checks.
+- Kept original project materials outside the public repository.
+Outcome: a reproducible small-corpus foundation for further retrieval testing.
+Milestone 4 — Hybrid Search and Scoped Retrieval
+- Developed the exact-match and semantic-search workflow for complementary query types.
+- Added scoped retrieval and result-combination logic.
+- Exercised live retrieval against the limited local environment.
+- Continued work on relevance and trustworthy freshness indicators rather than assuming that indexed content is always current.
+Outcome: scoped live retrieval verified; quality and freshness hardening remain active.
+Milestone 5 — Project Re-entry and Evidence Review
+- Introduced project-context recovery as a separate workflow from ordinary search.
+- Added an advisory evidence-review path designed to expose gaps and uncertain states.
+- Preserved explicit partial/review outcomes instead of reporting unsupported completion.
+Outcome: project re-entry is PARTIAL; evidence-assisted review remains REVIEW_REQUIRED where proof is insufficient.
+Milestone 6 — Regression and User-Scenario Validation
+- Expanded the regression suite across the bounded local MVP.
+- Recorded 145 / 145 automated checks passed in the latest available internal baseline.
+- Accepted 3 / 3 primary user scenarios for the limited local scope.
+- Confirmed scoped live retrieval without treating it as proof of every production dependency.
+Outcome: a validated local MVP baseline, with results limited to the tested candidate and environment.
+Milestone 7 — Controlled Owner Admission
+- Established a limited owner-approved operating scope for the local CLI workflow.
+- Kept production modification and release authority outside the retrieval and AI-review components.
+- Recorded unresolved boundaries explicitly, including server-index as-of state, re-entry completeness, evidence-review limitations, and sustained stability.
+Outcome: limited local Owner GO; full Production GO not yet established.
+Current Engineering Priorities
+The next improvements are driven by actual validation gaps:
+- Make source freshness and index state independently verifiable.
+- Improve relevance on representative project questions and negative cases.
+- Complete more reliable project re-entry context packs.
+- Strengthen evidence linkage without granting an AI reviewer release authority.
+- Confirm runtime recovery, stability, and the remaining production admission checks.
+- Expand the source corpus only when permissions and practical value justify it.
+No external cloud access, extra vector infrastructure, unrestricted autonomous operation, or customer-data ingestion is implied by this roadmap.
+Current Status
+As of November 19, 2026: internal operational MVP with limited local owner approval; full production authorization remains unconfirmed.
+
+The project will continue to publish selected, sanitized milestones while the engineering implementation stays private.
+AIAQ Lab
+- Website: https://aiaqlab.com/
+- Telegram channel: https://t.me/ai_b2b_automation
+- GitHub: https://github.com/ai-b2b-automation
+- Project and consulting contact: https://t.me/ai_arch_pro
+- Email: ai@aiaqlab.com
