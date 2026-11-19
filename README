@@ -1,0 +1,129 @@
+AIAQ Knowledge Intelligence System
+Local-first knowledge retrieval, project context recovery, and evidence-assisted engineering decisions.
+
+AIAQ Knowledge Intelligence System (KIS) is an internal, production-oriented AI knowledge layer developed by AIAQ Lab for its self-hosted AI Hub. It helps recover relevant information from approved project materials, return to ongoing engineering work with better context, and prepare source-grounded evidence for technical review.
+
+Rather than creating another general-purpose chatbot or duplicating existing infrastructure, KIS connects selected knowledge sources through a controlled retrieval workflow. The original documents and repositories remain the sources of truth.
+Public showcase: This repository provides a high-level project case study. The working implementation, private knowledge base, source documents, internal architecture, security configuration, prompts, infrastructure details, credentials, and commercially sensitive materials are not published.
+
+What It Solves
+Operating multiple AI and automation projects creates recurring knowledge-management problems:
+- Decisions, technical findings, and project history are scattered across documents and repositories.
+- Returning to a paused project requires time-consuming manual reconstruction of its current state.
+- Exact identifiers, errors, revisions, and test evidence can be difficult to locate.
+- Semantic search alone can miss critical filenames, requirement IDs, or version-specific facts.
+- Old reports may be mistaken for current system status.
+- AI-generated explanations can be confused with verified engineering evidence.
+- Rebuilding the same context repeatedly slows down development and delivery.
+KIS addresses these problems with source-aware search, bounded context recovery, and evidence-first review.
+High-Level Workflow
+Approved Knowledge Sources
+(Markdown / Selected Git Documentation / Project Evidence)
+                      |
+                      v
+        Source Scope & Access Controls
+                      |
+                      v
+       Controlled Ingestion & Indexing
+                      |
+                      v
+        Exact Search + Semantic Search
+                      |
+                      v
+         Retrieval & Result Fusion
+                      |
+                      v
+        Source-Attributed Information
+                      |
+          +-----------+-----------+
+          |           |           |
+          v           v           v
+       Search      Project     Evidence
+       Results     Re-entry    Review Aid
+          |           |           |
+          +-----------+-----------+
+                      |
+                      v
+              Human / Engineering
+               Verification Gates
+This diagram is intentionally simplified and does not describe the private deployment topology.
+Core Capabilities
+The system is designed around three practical workflows:
+1. Knowledge Search
+- Find relevant information in explicitly approved local project materials.
+- Combine lexical/exact matching with semantic retrieval for different query types.
+- Use source references and scoped retrieval rather than unsupported generated assertions.
+- Distinguish missing, stale, or uncertain information from verified facts.
+2. Project Re-entry
+- Bring together the available project mission, current state, decisions, and known blockers.
+- Help an engineer or AI-assisted development tool resume work without reconstructing every earlier discussion.
+- Preserve uncertainty where source freshness or completeness cannot be confirmed.
+Current maturity: the re-entry workflow is partially validated and remains subject to additional completeness checks.
+3. Evidence-Assisted Review
+- Organize available project requirements and supporting technical evidence for review.
+- Highlight missing or conflicting information instead of inventing a passing result.
+- Support engineering decisions without replacing deterministic tests or human approval.
+Current maturity: evidence review is advisory and can return REVIEW_REQUIRED; it does not authorize production releases.
+Local-First Engineering Approach
+KIS is developed around a small set of operating principles:
+- Reuse before expansion: build on existing AI Hub components instead of creating unnecessary duplicate services.
+- Local-first processing: use local retrieval and model infrastructure as the default path.
+- Sources of truth remain external: the search index is derived data, not an authoritative replacement for original project files.
+- Least-privilege ingestion: process only approved materials within explicit source boundaries.
+- Evidence before conclusions: distinguish documented claims from verified test and runtime evidence.
+- Fail safely on uncertainty: missing or stale evidence calls for review, not an invented answer.
+- Human control: consequential infrastructure changes and release decisions remain subject to separate approval gates.
+- Measured development: prioritize working end-to-end scenarios and regression evidence over feature accumulation.
+Cloud AI APIs, automatic external fallbacks, unrestricted autonomous agents, and new infrastructure services are not required for the core local workflow.
+Representative Technology
+The implementation is developed within the existing AIAQ self-hosted AI ecosystem.
+
+Publicly disclosed technology categories:
+
+Python · Local LLMs · Ollama · Open WebUI / Chroma · Hybrid Retrieval · Markdown · Git · CLI · Automated Testing · AI-assisted Engineering
+
+The validated retrieval path reuses the existing Open WebUI / Chroma environment alongside local lexical search. This project does not claim a separate new production vector database or a publicly available SaaS endpoint.
+
+Detailed configurations, indexing contracts, storage locations, private integration points, and production source code remain confidential.
+Engineering Validation
+Selected results from the internal validation snapshot recorded on November 19, 2026:
+Area	Reported validation result
+Retrieval foundation	Existing Open WebUI / Chroma-based approach selected and exercised
+Controlled pilot corpus	6 documents / 165 chunks; 4 pilot documents
+Search workflow	Scoped live retrieval verified in the local environment
+Automated regression suite	145 / 145 checks passed in the recorded baseline
+Primary user scenarios	3 / 3 scenarios accepted for the limited local MVP
+Recovery	Controlled backup / restore checks passed during development
+
+
+These figures describe bounded internal validation, not third-party certification, an availability SLA, or a claim of independently audited enterprise-wide deployment. No unverified percentage of time saved or commercial ROI is asserted.
+Current Project Status
+Internal operational MVP — limited owner-approved local use.
+
+KIS has passed its recorded local regression and scoped end-to-end checks. However, the engineering record does not establish full, unrestricted Production GO.
+
+The remaining validation boundaries include server-index freshness, completeness of project re-entry, evidence-review maturity, retrieval relevance improvements, and sustained operational stability. Advanced workflows remain review-gated while these areas are strengthened.
+
+The system is being improved through incremental, evidence-driven releases rather than treating every planned capability as already deployed.
+Public Repository Scope
+Included here:
+- Project purpose and operational problem.
+- Simplified architectural and workflow descriptions.
+- Publicly shareable technology categories.
+- Selected, bounded validation milestones.
+- A high-level development changelog.
+Not included here:
+- Private production source code or deployment manifests.
+- Internal documents, customer data, raw indexed content, or embeddings.
+- Credentials, tokens, secrets, or environment files.
+- Private repository locations, network topology, or security configuration.
+- Proprietary prompts, scoring rules, database structures, and internal operational logs.
+This repository is a portfolio case study, not a ready-to-deploy open-source package.
+AIAQ Lab
+AIAQ Lab develops AI systems, automation, private infrastructure, and engineering workflows focused on practical, measurable business value.
+- Website: https://aiaqlab.com/
+- Telegram channel: https://t.me/ai_b2b_automation
+- GitHub: https://github.com/ai-b2b-automation
+- Project and consulting contact: https://t.me/ai_arch_pro
+- Email: ai@aiaqlab.com
+Production implementations and adaptations for specific organizations are handled privately, with the required security and deployment review.
